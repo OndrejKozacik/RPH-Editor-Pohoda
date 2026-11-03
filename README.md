@@ -5,7 +5,7 @@ z REPORT Designeru). Faktury, objednávky, dodací listy, bankovní doklady a da
 na náhledu sestavy: měníte texty, posouváte a zvětšujete políčka, vkládáte nová pole, upravujete podmínky tisku
 a vzorce. Původní sestavy Pohody se přitom **nikdy nemění**, úpravy se ukládají jako kopie.
 
-Program byl vytvořen v Claude Code a naprogramován v Rustu.
+Program byl vytvořen v Claude Code a naprogramován v Rustu. Aplikace je určená pro systémy Windows.
 
 ![Hlavní okno RPH Editoru (tmavý motiv)](docs/img/hlavni-okno-tmavy.png)
 
