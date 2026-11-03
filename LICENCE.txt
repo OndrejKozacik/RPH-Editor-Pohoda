@@ -1,0 +1,42 @@
+RPH Editor – licenční podmínky (freeware, bez záruky)
+=====================================================
+
+Copyright (c) 2026 OndrejKozacik (https://github.com/OndrejKozacik). Všechna práva vyhrazena, pokud není níže uvedeno jinak.
+
+1. Co smíte
+   Program RPH Editor (soubory rph-gui.exe, rph-mcp.exe, rph.exe a přiložené nástroje, dále "Program") smíte
+   zdarma stahovat, instalovat a používat, a to pro osobní i firemní (komerční) účely, na libovolném počtu počítačů.
+   Program smíte zdarma šířit dál v nezměněné podobě (celý balík včetně tohoto souboru), pokud za něj nebudete
+   požadovat úhradu.
+
+2. Co nesmíte
+   - Program prodávat, pronajímat nebo za něj jinak požadovat úhradu.
+   - Program upravovat, zpětně analyzovat (dekompilovat, disassemblovat) nebo z něj odvozovat jiná díla, s výjimkou případů,
+     které výslovně dovoluje zákon a které nelze smlouvou vyloučit.
+   - Odstraňovat z Programu označení autora, tyto licenční podmínky a upozornění na neoficiální povahu Programu.
+
+3. Zdrojový kód
+   Zdrojový kód Programu není součástí balíku a nebyl zveřejněn. Tyto podmínky neposkytují právo na jeho získání.
+
+4. Žádná záruka
+   PROGRAM SE POSKYTUJE "TAK, JAK JE", BEZ JAKÉKOLI ZÁRUKY, VÝSLOVNÉ NEBO MLČKY PŘEDPOKLÁDANÉ, VČETNĚ ZÁRUKY
+   OBCHODOVATELNOSTI, VHODNOSTI PRO URČITÝ ÚČEL A NEPORUŠOVÁNÍ PRÁV. Používáte ho na vlastní nebezpečí. Upravené
+   tiskové sestavy vždy zkontrolujte a vyzkoušejte tiskem v Pohodě a své sestavy a data zálohujte.
+
+5. Omezení odpovědnosti
+   Autor neodpovídá za žádnou škodu ani ztrátu dat vzniklou používáním Programu nebo nemožností jej používat, a to
+   v nejširším rozsahu, který dovoluje právo. Tím není dotčena odpovědnost, kterou nelze zákonem vyloučit.
+
+6. Neoficiální program a ochranné známky
+   Program je neoficiální, není vytvořen, schválen ani podporován společností STORMWARE s.r.o. POHODA a REPORT Designer
+   jsou ochranné známky nebo názvy produktů této společnosti a používají se jen k popisu kompatibility. Tyto podmínky
+   se netýkají programu POHODA ani jeho sestav, na které se vztahují licenční podmínky jejich výrobce.
+
+7. Součásti třetích stran
+   Program obsahuje knihovny a písma třetích stran, na které se vztahují jejich vlastní licence uvedené v souboru
+   THIRD-PARTY.txt. Tyto podmínky je neomezují.
+
+8. Ukončení a právo
+   Při porušení těchto podmínek vaše právo Program používat zaniká. Podmínky se řídí právem České republiky.
+
+Používáním Programu s těmito podmínkami souhlasíte.

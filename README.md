@@ -355,6 +355,8 @@ zaručit.
   Pohody otevřenou v tomto programu.
 - Program je poskytován **„tak, jak je“**, bez jakékoli záruky. Používáte ho na vlastní odpovědnost, upravené sestavy
   před nasazením vždy zkontrolujte.
-- Zdrojový kód zatím není zveřejněn. Licenční podmínky budou upřesněny spolu s prvním vydáním.
+- **Licence:** program je **freeware, bez záruky**. Můžete ho zdarma používat i ve firmě a šířit v nezměněné podobě,
+  nesmíte ho prodávat, upravovat ani zpětně analyzovat. Úplné znění je v souboru [LICENCE.txt](LICENCE.txt).
+- Zdrojový kód není zveřejněn.
 
 Autor: [@OndrejKozacik](https://github.com/OndrejKozacik)
