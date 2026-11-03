@@ -296,7 +296,9 @@ zpracovává jeho poskytovatel podle svých podmínek.
 
 Program nevyžaduje instalaci, stačí složka s `rph-gui.exe`. Nastavení se ukládá do `%APPDATA%\rph-gui\nastaveni.json`.
 
-> **Stažení:** první vydání bude zveřejněno v sekci **[Releases](../../releases)** tohoto repozitáře (připravujeme).
+> **Stažení:** poslední verzi najdete v sekci **[Releases](../../releases/latest)** tohoto repozitáře
+> (soubor `RphEditor-0.1.0.zip`, stačí rozbalit a spustit `rph-gui.exe`). Program není digitálně podepsaný, takže ho
+> Windows při prvním spuštění může označit jako neznámý (**Další informace › Přesto spustit**).
 
 1. Spusťte `rph-gui.exe`. Při prvním spuštění se zobrazí krátký průvodce (znovu ho otevřete v **Nápověda › Jak na to**).
 2. Sestavu najdete v panelu **Sestavy** vlevo, přes Ctrl+P, nebo ji otevřete ze souboru (**Soubor › Otevřít sestavu**).
