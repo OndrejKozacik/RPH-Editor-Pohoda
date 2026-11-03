@@ -114,8 +114,141 @@ Program je určen především pro české a slovenské uživatele Pohody. Celé
 - **Změny textů, vlastností sestavy a zdroje dat agent nejdřív nabídne k potvrzení.** Agent smí pracovat jen
   s nástroji editoru, ne se soubory na disku.
 - Pro vlastní AI klienty je součástí také **server MCP** (`rph-mcp`) se stejnými bezpečnostními pravidly.
+  Postup instalace je [níže](#server-mcp-rph-mcp-pro-vlastní-ai-klienty).
 
 ![Panel Agent](docs/img/agent-ai.png)
+
+#### Server MCP (`rph-mcp`) pro vlastní AI klienty
+
+Panel Agent v editoru si MCP server spouští sám a nic nastavovat nemusíte. Chcete-li sestavy upravovat v **jiném AI
+klientu** (Claude Code, Claude Desktop, Codex CLI, Cursor, VS Code, Gemini CLI a další), zaregistrujete `rph-mcp.exe`
+v něm. Server mluví standardním protokolem **MCP přes stdio**, takže funguje v každém klientu, který takové servery umí.
+
+**Co je potřeba**
+
+- soubor `rph-mcp.exe` (je ve vydání programu vedle `rph-gui.exe`) uložený na pevné místo, např.
+  `C:\Programy\RphEditor\rph-mcp.exe`,
+- **pracovní složku** pro nové sestavy (`RPH_WORK_DIR`) – jediné místo, kam server smí zapisovat. Pro Pohodu je to
+  typicky `C:\ProgramData\STORMWARE\POHODA\Tisk\Copy`, takže uložené sestavy uvidíte rovnou v Pohodě. Složka s názvem `Tisk`
+  není jako pracovní složka povolena,
+- volitelně **složky ke čtení** (`RPH_READ_ROOTS`), např. `C:\ProgramData\STORMWARE\POHODA\Tisk` s originály Pohody.
+  Více složek oddělte znakem `|`. Pracovní složka je čitelná vždy.
+
+Cesty v příkladech upravte podle svého počítače. Po registraci klienta **restartujte** (nebo v něm obnovte seznam serverů)
+a zkuste zadání např. „Vypiš sestavy v pracovní složce.“
+
+<details>
+<summary><b>Claude Code</b> (příkazový řádek)</summary>
+
+```powershell
+claude mcp add rph --scope user `
+  --env RPH_WORK_DIR=C:\ProgramData\STORMWARE\POHODA\Tisk\Copy `
+  --env "RPH_READ_ROOTS=C:\ProgramData\STORMWARE\POHODA\Tisk" `
+  -- C:\Programy\RphEditor\rph-mcp.exe
+```
+
+- Bez `--scope user` se server zaregistruje jen pro aktuální projekt (složku).
+- Hodnotu `RPH_READ_ROOTS` s více složkami (`C:\a|D:\b`) dejte do uvozovek, jinak ji PowerShell i cmd vezmou jako rouru.
+- Kontrola: `claude mcp list`, v samotném Claude Code příkaz `/mcp`.
+
+</details>
+
+<details>
+<summary><b>Claude Desktop</b></summary>
+
+V aplikaci **Nastavení › Vývojář › Upravit konfiguraci** otevřete soubor `claude_desktop_config.json`
+(obvykle `%APPDATA%\Claude\claude_desktop_config.json`) a přidejte server do `mcpServers`:
+
+```json
+{
+  "mcpServers": {
+    "rph": {
+      "command": "C:\\Programy\\RphEditor\\rph-mcp.exe",
+      "env": {
+        "RPH_WORK_DIR": "C:\\ProgramData\\STORMWARE\\POHODA\\Tisk\\Copy",
+        "RPH_READ_ROOTS": "C:\\ProgramData\\STORMWARE\\POHODA\\Tisk"
+      }
+    }
+  }
+}
+```
+
+V JSON je nutné zdvojit zpětná lomítka. Potom Claude Desktop **úplně ukončete** (i z oznamovací oblasti) a spusťte znovu.
+
+</details>
+
+<details>
+<summary><b>Codex CLI</b></summary>
+
+```powershell
+codex mcp add rph `
+  --env RPH_WORK_DIR=C:\ProgramData\STORMWARE\POHODA\Tisk\Copy `
+  --env "RPH_READ_ROOTS=C:\ProgramData\STORMWARE\POHODA\Tisk" `
+  -- C:\Programy\RphEditor\rph-mcp.exe
+```
+
+Nebo ručně v souboru `%USERPROFILE%\.codex\config.toml` (v řetězcích TOML se používají jednoduché apostrofy nebo
+zdvojená lomítka):
+
+```toml
+[mcp_servers.rph]
+command = 'C:\Programy\RphEditor\rph-mcp.exe'
+
+[mcp_servers.rph.env]
+RPH_WORK_DIR = 'C:\ProgramData\STORMWARE\POHODA\Tisk\Copy'
+RPH_READ_ROOTS = 'C:\ProgramData\STORMWARE\POHODA\Tisk'
+```
+
+Kontrola: `codex mcp list`, v interaktivním Codexu příkaz `/mcp`.
+
+</details>
+
+<details>
+<summary><b>Cursor, Gemini CLI, Cline a další klienty s <code>mcpServers</code></b></summary>
+
+Většina dalších klientů používá stejný zápis jako Claude Desktop (blok `mcpServers` výše). Liší se jen umístěním souboru,
+např. Cursor `%USERPROFILE%\.cursor\mcp.json`, Gemini CLI `%USERPROFILE%\.gemini\settings.json`. Přesné místo
+ověřte v dokumentaci svého klienta, může se mezi verzemi lišit.
+
+</details>
+
+<details>
+<summary><b>Visual Studio Code (GitHub Copilot)</b></summary>
+
+Příkazem **MCP: Add Server** nebo ručně v souboru `.vscode\mcp.json` ve složce projektu (nebo v uživatelském `mcp.json`).
+Tady se blok jmenuje `servers`:
+
+```json
+{
+  "servers": {
+    "rph": {
+      "type": "stdio",
+      "command": "C:\\Programy\\RphEditor\\rph-mcp.exe",
+      "env": {
+        "RPH_WORK_DIR": "C:\\ProgramData\\STORMWARE\\POHODA\\Tisk\\Copy",
+        "RPH_READ_ROOTS": "C:\\ProgramData\\STORMWARE\\POHODA\\Tisk"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+**Co server nabízí.** Nástroje pro výpis a prohlížení sestav, kontrolu a porovnání dvou sestav, úpravy pomocí
+pojmenovaných operací (s možností nejdřív zkusit změnu naprázdno), založení nové sestavy ze šablony, seznam polí
+databáze a kontrolu a úpravy zdroje dat (`.dat`). Pracuje s **uloženými soubory** `.rph`, ne s dokumentem otevřeným v okně
+editoru (to dělá panel Agent).
+
+**Bezpečnostní pravidla** platí stejně jako v editoru a server je vynucuje sám, ne jen „prosbou“ k AI:
+
+- čte jen z `RPH_READ_ROOTS` a z pracovní složky, ostatní cesty (včetně síťových `\\server\sdílená`) odmítne,
+- zapisuje **jen nové soubory `*.rph`** do pracovní složky, nikdy nepřepisuje existující soubor ani nezapisuje do složky `Tisk`,
+- texty v sestavách a zdroji dat bere jako data, ne jako pokyny,
+- úprava, po které by Pohoda sestavu nenačetla, se neprovede.
+
+Po úpravě sestavu vždy otevřete v Pohodě a vyzkoušejte tiskem. AI klient je externí program a to, co mu zadáte,
+zpracovává jeho poskytovatel podle svých podmínek.
 
 ### Vzhled, pohodlí a přístupnost
 
