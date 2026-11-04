@@ -283,6 +283,10 @@ zpracovává jeho poskytovatel podle svých podmínek.
 ## Systémové požadavky
 
 - **Windows 10 nebo 11** (64 bit). Vývoj a testování probíhaly na Windows 11.
+- **Grafika:** program kreslí přes OpenGL 2.0. Když ho počítač nemá (Vzdálená plocha bez grafické karty, virtuální stroj,
+  starý ovladač), sám se znovu spustí s vykreslováním přes DirectX 12 / Vulkan, včetně softwarového adaptéru Windows.
+  Ověřeno ve virtuálním stroji, na skutečné Vzdálené ploše serveru bez GPU zatím ne – pokud to u vás nefunguje, napište
+  do [Issues](../../issues).
 - **Pohoda není nutná.** S ní program sám najde sestavy, data a REPORT Designer. Podporovány jsou sestavy z REPORT
   Designeru Pohody verze 5.x.
 - Pro **Náhled s daty** nad databází `.mdb` je potřeba ovladač ODBC pro Microsoft Access (bývá v počítači s Pohodou),
@@ -297,7 +301,7 @@ zpracovává jeho poskytovatel podle svých podmínek.
 Program nevyžaduje instalaci, stačí složka s `rph-gui.exe`. Nastavení se ukládá do `%APPDATA%\rph-gui\nastaveni.json`.
 
 > **Stažení:** poslední verzi najdete v sekci **[Releases](../../releases/latest)** tohoto repozitáře
-> (soubor `RphEditor-0.1.0.zip`, stačí rozbalit a spustit `rph-gui.exe`). Program není digitálně podepsaný, takže ho
+> (soubor `RphEditor-0.1.1.zip`, stačí rozbalit a spustit `rph-gui.exe`). Program není digitálně podepsaný, takže ho
 > Windows při prvním spuštění může označit jako neznámý (**Další informace › Přesto spustit**).
 
 1. Spusťte `rph-gui.exe`. Při prvním spuštění se zobrazí krátký průvodce (znovu ho otevřete v **Nápověda › Jak na to**).
