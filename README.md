@@ -347,9 +347,17 @@ RPH Editor je nový program a je poctivé říct, kde jsou jeho hranice:
 
 ## Hlášení chyb a nápadů
 
-Chyby a nápady můžete zakládat v sekci **[Issues](../../issues)**. Pokud program vytvořil hlášení o chybě
-(Nápověda › Nahlásit chybu), přiložte jen to, co jste si prohlédli a co chcete sdílet. Odpověď ani opravu nelze
-zaručit.
+Chyby a nápady můžete zakládat v sekci **[Issues](../../issues)**; pro chybu je připravená
+**[šablona hlášení](../../issues/new?template=hlaseni-chyby.md)**, která se zeptá na verzi programu, Windows a postup.
+
+Co přiložit:
+
+- **Hlášení z programu** (Nápověda › Nahlásit chybu): vytvoří se jen u vás jako soubor ZIP a nic se neodesílá. Jména účtu,
+  e-maily, název SQL serveru a cesty ve vaší složce jsou v něm nahrazeny, přesto si ho před přiložením prohlédněte.
+- **Nepřikládejte sestavy zákazníků ani obsah databáze Pohody.** Sestavu přiložte jen tehdy, když chybu jinak nejde popsat,
+  a nejdřív z ní odstraňte firemní údaje.
+
+Odpověď ani opravu nelze zaručit.
 
 ## Právní upozornění
 
